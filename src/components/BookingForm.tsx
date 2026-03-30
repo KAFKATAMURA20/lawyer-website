@@ -237,6 +237,12 @@ export default function BookingForm() {
               {formData.practiceArea}
             </span>
           </p>
+          <p>
+            <span className="text-muted">Fee:</span>{" "}
+            <span className="font-semibold text-navy">
+              {selectedConsultation?.fee}
+            </span>
+          </p>
         </div>
 
         <p className="text-xs text-muted">
@@ -313,7 +319,14 @@ export default function BookingForm() {
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-navy">{type.title}</p>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="font-semibold text-navy">{type.title}</p>
+                      {type.confirmation && (
+                        <span className="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full">
+                          Subject to confirmation
+                        </span>
+                      )}
+                    </div>
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-sm text-muted">
                       <span className="inline-flex items-center gap-1">
                         <Clock size={14} />
@@ -330,11 +343,9 @@ export default function BookingForm() {
                     </div>
                     <p className="text-sm text-charcoal mt-1">{type.note}</p>
                   </div>
-                  {type.confirmation && (
-                    <span className="shrink-0 text-xs bg-amber-50 text-amber-700 border border-amber-200 px-2 py-1 rounded-full">
-                      Subject to confirmation
-                    </span>
-                  )}
+                  <div className="shrink-0 text-right">
+                    <p className="text-lg font-bold text-navy">{type.fee}</p>
+                  </div>
                 </div>
               </button>
             ))}
