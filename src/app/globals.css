@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B2A4A;
+  --color-navy-light: #2A3F6B;
+  --color-gold: #B8934B;
+  --color-gold-light: #D4B87A;
+  --color-cream: #F8F6F3;
+  --color-charcoal: #2D2D2D;
+  --color-muted: #6B7280;
+  --color-border: #E5E2DE;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #20BD5A;
+
+  /* Body uses system fonts — zero download, renders instantly on all devices */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  /* Heading font loaded via next/font/google (only Playfair Display) */
+  --font-heading: var(--font-playfair, Georgia, "Times New Roman", serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Faster tap response on mobile — removes 300ms delay */
+  touch-action: manipulation;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+
+/* Sticky CTA safe area — accounts for iOS notch / Android gesture bar */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 80px;
+  }
+  footer {
+    padding-bottom: 80px;
+  }
+}
+
+/* Prevent body scroll when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* FAQ accordion animation */
+details[open] summary .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-chevron {
+  transition: transform 200ms ease;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Tap highlight on mobile — subtle feedback */
+a, button {
+  -webkit-tap-highlight-color: rgba(27, 42, 74, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

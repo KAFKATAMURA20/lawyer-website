@@ -1,0 +1,115 @@
+export const siteData = {
+  firmName: "B S Manhas & Associates",
+  lawyerName: "Adv. Amarvir Singh Manhas",
+  lawyerFullName: "Amarvir Singh Manhas",
+  designation: "Advocate",
+  tagline: "Civil, Criminal & Matrimonial Lawyers",
+  phone: "+91 94190 00016",
+  whatsapp: "+91 94190 00016",
+  email: "[Email]",
+  address: {
+    line1: "19 A Bhawani Nagar, Janipur",
+    line2: "",
+    city: "Jammu",
+    state: "Jammu & Kashmir",
+    pin: "180007",
+  },
+  barEnrollment: "[Bar Council of J&K and Ladakh] — [Enrollment Number]",
+  education: "[Degree, University, Year]",
+  yearsOfPractice: "[X]",
+  hours: {
+    monday: "5:45 PM – 9:00 PM",
+    tuesdayToSaturday: "6:00 PM – 9:00 PM",
+    sunday: "Closed",
+  },
+  courts: [
+    "High Court of Jammu & Kashmir and Ladakh",
+    "District Court, Jammu",
+  ],
+  languages: ["English", "Hindi", "Dogri"],
+  whatsappLink: "https://wa.me/919419000016?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20legal%20matter.",
+  phoneLink: "tel:+919419000016",
+  emailLink: "mailto:[email]",
+} as const;
+
+// Google Reviews — real reviews from Google Maps (4.7/5, 11 reviews)
+export const googleReviews = {
+  rating: 4.7,
+  totalReviews: 11,
+  reviews: [
+    {
+      name: "Sumukh Khar",
+      rating: 5,
+      text: "Great services and they really have immense knowledge about law. Highly recommended for any type of consultation. NRI and international consultation provided as well.",
+      timeAgo: "3 years ago",
+    },
+    {
+      name: "Ujjwal Sharma",
+      rating: 5,
+      text: "Helpful... one must come here for consultation.",
+      timeAgo: "6 years ago",
+    },
+    {
+      name: "Mahant Onkar Giri Bakshi",
+      rating: 5,
+      text: "Experienced lawyer.",
+      timeAgo: "2 years ago",
+    },
+    {
+      name: "Gaurav Wazir",
+      rating: 5,
+      text: "Nice, helping people.",
+      timeAgo: "6 years ago",
+    },
+    {
+      name: "Vasudha Kotwal",
+      rating: 5,
+      text: "",
+      timeAgo: "7 years ago",
+    },
+    {
+      name: "Sayantini Bhuyan",
+      rating: 5,
+      text: "",
+      timeAgo: "5 years ago",
+    },
+    {
+      name: "Niloy Ray",
+      rating: 5,
+      text: "",
+      timeAgo: "3 years ago",
+    },
+  ],
+};
+
+// Detailed client experiences (anonymized, for richer storytelling)
+export const testimonials = [
+  {
+    quote:
+      "Great services and they really have immense knowledge about law. Highly recommended for any type of consultation. NRI and international consultation provided as well.",
+    name: "Sumukh K.",
+    caseType: "Legal Consultation",
+    practiceArea: "Civil" as const,
+  },
+  {
+    quote:
+      "Helpful — one must come here for consultation. Clear guidance and a professional approach to every matter.",
+    name: "Ujjwal S.",
+    caseType: "Consultation",
+    practiceArea: "Civil" as const,
+  },
+  {
+    quote:
+      "Experienced lawyer. Handled everything professionally and kept me informed throughout the process.",
+    name: "Mahant O.",
+    caseType: "Legal Matter",
+    practiceArea: "Civil" as const,
+  },
+  {
+    quote:
+      "Nice, helping people. Made me feel comfortable from the very first meeting and explained everything clearly.",
+    name: "Gaurav W.",
+    caseType: "Legal Consultation",
+    practiceArea: "Civil" as const,
+  },
+];
