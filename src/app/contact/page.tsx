@@ -164,6 +164,36 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* ===== GOOGLE MAP ===== */}
+      <section className="py-0">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3358.123!2d74.8571!3d32.7185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s19A+Bhawani+Nagar%2C+Janipur%2C+Jammu%2C+Jammu+and+Kashmir+180007!5e0!3m2!1sen!2sin!4v1"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="B S Manhas & Associates — Office Location"
+              className="w-full"
+            />
+          </div>
+          <p className="text-xs text-muted text-center mt-3 mb-8">
+            19 A Bhawani Nagar, Janipur, Jammu, J&amp;K 180007 &mdash;{" "}
+            <a
+              href="https://www.google.com/maps/search/B+S+Manhas+%26+Associates+Jammu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-navy underline"
+            >
+              Open in Google Maps
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* ===== WHAT HAPPENS NEXT ===== */}
       <section className="py-12 md:py-16 bg-cream">
         <div className="mx-auto max-w-4xl px-4 md:px-8">
