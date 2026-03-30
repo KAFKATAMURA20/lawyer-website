@@ -64,14 +64,14 @@ export default function CTASection({
             WhatsApp
           </a>
           <Link
-            href="/contact"
+            href="/book"
             className={`inline-flex items-center gap-2 rounded-lg border-2 px-6 py-3 text-base font-semibold transition-colors ${
               isDark
                 ? "border-white/40 text-white hover:bg-white/10"
                 : "border-navy text-navy hover:bg-navy hover:text-white"
             }`}
           >
-            Send a Message
+            Book a Consultation
           </Link>
         </div>
       </div>

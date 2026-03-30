@@ -32,6 +32,70 @@ export const siteData = {
   emailLink: "mailto:[email]",
 } as const;
 
+// Booking / consultation configuration
+export const consultationTypes = [
+  {
+    id: "in-office-30",
+    title: "In-Office Consultation",
+    duration: "30 minutes",
+    mode: "In person at Jammu office",
+    note: "Suitable for first advice and initial case review",
+    fee: "[Fee or 'Discussed at booking']",
+    confirmation: false,
+  },
+  {
+    id: "in-office-60",
+    title: "In-Office Detailed Consultation",
+    duration: "60 minutes",
+    mode: "In person at Jammu office",
+    note: "For matters requiring detailed discussion and document review",
+    fee: "[Fee or 'Discussed at booking']",
+    confirmation: false,
+  },
+  {
+    id: "tele-20",
+    title: "Tele-Consultation",
+    duration: "20 minutes",
+    mode: "Phone or video call",
+    note: "Quick advice on a specific legal question",
+    fee: "[Fee or 'Discussed at booking']",
+    confirmation: false,
+  },
+  {
+    id: "tele-30",
+    title: "Tele-Consultation (Extended)",
+    duration: "30 minutes",
+    mode: "Phone or video call",
+    note: "Suitable for NRI clients or those unable to visit the office",
+    fee: "[Fee or 'Discussed at booking']",
+    confirmation: false,
+  },
+  {
+    id: "urgent",
+    title: "Urgent Consultation Request",
+    duration: "As needed",
+    mode: "Phone, in person, or video — based on availability",
+    note: "For time-sensitive matters such as bail or FIR-related issues",
+    fee: "[Fee or 'Discussed at booking']",
+    confirmation: true,
+  },
+] as const;
+
+export const bookingConfig = {
+  // Office hours for booking slots
+  slotStart: 18, // 6:00 PM (24h format)
+  slotEnd: 21,   // 9:00 PM
+  mondayStart: 17.75, // 5:45 PM on Monday
+  slotDuration: 30, // minutes per slot
+  bufferMinutes: 15,
+  minNoticeHours: 12,
+  closedDays: [0] as number[], // 0 = Sunday
+  maxBookingsPerDay: 4,
+  practiceAreas: ["Civil Law", "Criminal Law", "Matrimonial Law"] as string[],
+  preferredLanguages: ["English", "Hindi", "Dogri"] as string[],
+  followUpModes: ["Phone", "WhatsApp", "Video Call", "In Person"] as string[],
+} as const;
+
 // Google Reviews — real reviews from Google Maps (4.7/5, 11 reviews)
 export const googleReviews = {
   rating: 4.7,

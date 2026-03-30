@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/criminal-law", label: "Criminal Law" },
   { href: "/matrimonial-law", label: "Matrimonial Law" },
   { href: "/testimonials", label: "Testimonials" },
+  { href: "/book", label: "Book" },
   { href: "/contact", label: "Contact" },
 ];
 

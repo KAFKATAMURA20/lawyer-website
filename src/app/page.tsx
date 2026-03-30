@@ -60,7 +60,7 @@ export default function HomePage() {
                   WhatsApp
                 </a>
                 <Link
-                  href="/contact"
+                  href="/book"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-navy px-6 py-3 text-base font-semibold text-navy hover:bg-navy hover:text-white transition-colors"
                 >
                   Book a Consultation
