@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import DisclaimerGate from "@/components/DisclaimerGate";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 import { siteData } from "@/lib/siteData";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={playfair.variable}>
       <body className="min-h-screen flex flex-col">
+        <GoogleAnalytics />
         <DisclaimerGate />
         <Header />
         <main className="flex-1">{children}</main>
