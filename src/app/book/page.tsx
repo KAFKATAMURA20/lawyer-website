@@ -10,7 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
-import BookingForm from "@/components/BookingForm";
+import CalEmbed from "@/components/CalEmbed";
 
 export const metadata: Metadata = {
   title: "Book a Consultation",
@@ -84,12 +84,18 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* ===== BOOKING FORM ===== */}
+      {/* ===== CAL.COM BOOKING WIDGET ===== */}
       <section className="py-10 md:py-14 bg-cream">
-        <div className="mx-auto max-w-2xl px-4 md:px-8">
-          <div className="rounded-2xl border border-border bg-white p-6 md:p-8 shadow-sm">
-            <BookingForm />
-          </div>
+        <div className="mx-auto max-w-4xl px-4 md:px-8">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy mb-2 text-center">
+            Schedule Your Consultation
+          </h2>
+          <p className="text-sm text-muted text-center mb-8">
+            Select a consultation type, choose an available date and time, and
+            confirm your booking. Your Google Calendar will be updated
+            automatically.
+          </p>
+          <CalEmbed />
         </div>
       </section>
 
