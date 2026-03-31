@@ -3,6 +3,7 @@ import { Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import DisclaimerGate from "@/components/DisclaimerGate";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Analytics } from "@vercel/analytics/next";
@@ -62,6 +63,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyMobileCTA />
+        <FloatingWhatsApp />
         <Analytics />
       </body>
     </html>

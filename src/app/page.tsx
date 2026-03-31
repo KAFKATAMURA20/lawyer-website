@@ -11,7 +11,7 @@ import {
   Heart,
   ArrowRight,
 } from "lucide-react";
-import { siteData, googleReviews } from "@/lib/siteData";
+import { siteData, googleReviews, consultationTypes } from "@/lib/siteData";
 import CTASection from "@/components/CTASection";
 import GoogleRatingBadge from "@/components/GoogleRatingBadge";
 
@@ -65,6 +65,23 @@ export default function HomePage() {
                 >
                   Book a Consultation
                 </Link>
+              </div>
+
+              {/* Trust signals + availability near CTAs */}
+              <div className="mt-5 flex flex-col gap-3">
+                <GoogleRatingBadge compact />
+                <p className="text-xs text-muted">
+                  Evening consultations Mon&ndash;Sat &middot; Responds within 24
+                  hours
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-charcoal">
+                  {consultationTypes.map((ct) => (
+                    <span key={ct.id}>
+                      {ct.title.replace(" Consultation", "")}: <strong className="text-navy">{ct.fee}</strong>{" "}
+                      <span className="text-muted">({ct.duration})</span>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 

@@ -112,6 +112,13 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
+      {/* ===== MID-CONTENT CTA ===== */}
+      <CTASection
+        variant="light"
+        heading="Ready to Experience the Same Level of Care?"
+        body="Join our clients who trust us with their most important legal matters. The first step is a conversation."
+      />
+
       {/* ===== NRI NOTE (from Sumukh's review) ===== */}
       <section className="py-10 md:py-12 bg-navy/[0.03]">
         <div className="mx-auto max-w-3xl px-4 md:px-8 text-center">

@@ -61,6 +61,15 @@ details[open] summary .faq-chevron {
   transition: transform 200ms ease;
 }
 
+/* Floating WhatsApp subtle pulse */
+@keyframes pulse-subtle {
+  0%, 100% { box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.7); }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
 /* Focus ring */
 :focus-visible {
   outline: 2px solid var(--color-gold);

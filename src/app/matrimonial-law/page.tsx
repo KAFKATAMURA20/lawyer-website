@@ -6,7 +6,9 @@ import {
   Wallet,
   Home,
   Layers,
+  Phone,
 } from "lucide-react";
+import Link from "next/link";
 import { siteData } from "@/lib/siteData";
 import ProcessSteps from "@/components/ProcessSteps";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -106,10 +108,32 @@ export default function MatrimonialLawPage() {
           <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-4">
             Matrimonial &amp; Family Law Representation in Jammu
           </h1>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
             Divorce. Child custody. Maintenance. Family disputes. Handled with
             discretion, care, and experienced legal guidance.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href={siteData.phoneLink}
+              className="inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors"
+            >
+              <Phone size={16} />
+              Call Now
+            </a>
+            <a
+              href={siteData.whatsappLink}
+              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white hover:bg-whatsapp-dark transition-colors"
+            >
+              WhatsApp
+            </a>
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-5 py-2.5 text-sm font-semibold text-navy hover:bg-navy hover:text-white transition-colors"
+            >
+              Book a Consultation
+            </Link>
+          </div>
+          <p className="text-xs text-muted mt-3">Consultation from ₹2,000 &middot; Confidential</p>
         </div>
       </section>
 
@@ -147,6 +171,13 @@ export default function MatrimonialLawPage() {
           </p>
         </div>
       </section>
+
+      {/* ===== MID-CONTENT CTA ===== */}
+      <CTASection
+        variant="light"
+        heading="Need Guidance on a Family Matter?"
+        body="Sensitive issues deserve careful, experienced advice. Reach out confidentially."
+      />
 
       {/* ===== SUB-AREAS ===== */}
       <section className="py-12 md:py-16 bg-cream">

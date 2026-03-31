@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone } from "lucide-react";
+import { Phone, CalendarCheck } from "lucide-react";
+import Link from "next/link";
 import { siteData } from "@/lib/siteData";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -17,21 +18,28 @@ export default function StickyMobileCTA() {
       className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-border shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
-      <div className="flex gap-3 p-2">
+      <div className="flex gap-2 p-2">
         <a
           href={siteData.phoneLink}
-          className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-navy min-h-[48px] py-3 text-sm font-semibold text-white active:scale-[0.97] transition-transform"
+          className="flex-1 flex items-center justify-center gap-1.5 rounded-lg bg-navy min-h-[48px] py-3 text-xs font-semibold text-white active:scale-[0.97] transition-transform"
         >
-          <Phone size={18} />
-          Call Now
+          <Phone size={16} />
+          Call
         </a>
         <a
           href={siteData.whatsappLink}
-          className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-whatsapp min-h-[48px] py-3 text-sm font-semibold text-white active:scale-[0.97] transition-transform"
+          className="flex-1 flex items-center justify-center gap-1.5 rounded-lg bg-whatsapp min-h-[48px] py-3 text-xs font-semibold text-white active:scale-[0.97] transition-transform"
         >
-          <WhatsAppIcon className="w-[18px] h-[18px]" />
+          <WhatsAppIcon className="w-4 h-4" />
           WhatsApp
         </a>
+        <Link
+          href="/book"
+          className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border-2 border-navy bg-white min-h-[48px] py-3 text-xs font-semibold text-navy active:scale-[0.97] transition-transform"
+        >
+          <CalendarCheck size={16} />
+          Book
+        </Link>
       </div>
     </div>
   );

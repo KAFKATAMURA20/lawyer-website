@@ -131,6 +131,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ===== MID-CONTENT CTA ===== */}
+      <CTASection
+        variant="light"
+        heading="Want to Discuss Your Case?"
+        body="Schedule a consultation to get direct, honest advice on your legal matter."
+      />
+
       {/* ===== WHY THESE PRACTICE AREAS ===== */}
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-[720px] px-4 md:px-8">

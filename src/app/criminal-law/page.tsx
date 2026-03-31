@@ -6,7 +6,9 @@ import {
   FileWarning,
   AlertTriangle,
   Layers,
+  Phone,
 } from "lucide-react";
+import Link from "next/link";
 import { siteData } from "@/lib/siteData";
 import ProcessSteps from "@/components/ProcessSteps";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -113,10 +115,32 @@ export default function CriminalLawPage() {
           <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-4">
             Criminal Law Representation in Jammu
           </h1>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
             Bail applications. Trial defense. FIR guidance. Confidential,
             responsive legal support when it matters most.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href={siteData.phoneLink}
+              className="inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-light transition-colors"
+            >
+              <Phone size={16} />
+              Call Now
+            </a>
+            <a
+              href={siteData.whatsappLink}
+              className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white hover:bg-whatsapp-dark transition-colors"
+            >
+              WhatsApp
+            </a>
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-5 py-2.5 text-sm font-semibold text-navy hover:bg-navy hover:text-white transition-colors"
+            >
+              Book a Consultation
+            </Link>
+          </div>
+          <p className="text-xs text-muted mt-3">Immediate response for urgent matters</p>
         </div>
       </section>
 
@@ -154,6 +178,13 @@ export default function CriminalLawPage() {
           </p>
         </div>
       </section>
+
+      {/* ===== MID-CONTENT CTA ===== */}
+      <CTASection
+        variant="light"
+        heading="Facing Criminal Charges? Do Not Delay."
+        body="Early legal intervention matters. Get confidential advice on your rights and next steps."
+      />
 
       {/* ===== SUB-AREAS ===== */}
       <section className="py-12 md:py-16 bg-cream">
@@ -210,16 +241,23 @@ export default function CriminalLawPage() {
       <FAQAccordion heading="Criminal Law — Common Questions" items={faqs} />
 
       {/* ===== URGENCY NOTE + CTA ===== */}
-      <section className="py-8 bg-red-50 border-y border-red-100">
+      <section className="py-8 md:py-10 bg-red-50 border-y border-red-100">
         <div className="mx-auto max-w-3xl px-4 md:px-8 text-center">
           <h2 className="font-heading text-xl md:text-2xl font-bold text-red-800 mb-2">
             Do Not Wait &mdash; Criminal Cases Are Time-Sensitive
           </h2>
-          <p className="text-red-700">
+          <p className="text-red-700 mb-5">
             In criminal matters, delays can weaken your position. If you or a
             family member is facing criminal charges, an FIR, or police
             questioning, contact {siteData.lawyerName} immediately.
           </p>
+          <a
+            href={siteData.phoneLink}
+            className="inline-flex items-center gap-2 rounded-lg bg-red-700 px-6 py-3 text-base font-semibold text-white hover:bg-red-800 transition-colors"
+          >
+            <Phone size={18} />
+            Call Now &mdash; {siteData.phone}
+          </a>
         </div>
       </section>
 
