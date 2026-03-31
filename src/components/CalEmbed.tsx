@@ -22,39 +22,38 @@ export default function CalEmbed({ calLink }: CalEmbedProps) {
   const link = calLink || CAL_USERNAME;
 
   useEffect(() => {
-    // Load Cal.com embed script
     const w = window as unknown as Record<string, unknown>;
-    const p = function (a: unknown, ar?: unknown) {
-      ((p as unknown as { q: unknown[] }).q =
-        (p as unknown as { q: unknown[] }).q || []).push([a, ar]);
+
+    // Cal.com's official embed snippet: queue commands until script loads
+    const cal = function (...args: unknown[]) {
+      const q = ((cal as unknown as { q: unknown[] }).q =
+        (cal as unknown as { q: unknown[] }).q || []);
+      q.push(args);
     };
-    w["Cal"] = p;
+    w["Cal"] = cal;
+
+    // Queue the init + inline commands (they execute once the script loads)
+    cal("init", { origin: "https://app.cal.com" });
+    cal("inline", {
+      elementOrSelector: "#cal-embed",
+      calLink: link,
+      layout: "month_view",
+      config: { theme: "light" },
+    });
+    cal("ui", {
+      theme: "light",
+      styles: { branding: { brandColor: "#1B2A4A" } },
+    });
+
+    // Load the embed script
     const s = document.createElement("script");
     s.src = "https://app.cal.com/embed/embed.js";
     s.async = true;
     document.head.appendChild(s);
 
-    // Initialize Cal embed after script loads
-    const timer = setTimeout(() => {
-      const Cal = w["Cal"] as
-        | ((action: string, ...args: unknown[]) => void)
-        | undefined;
-      if (Cal) {
-        Cal("init", { origin: "https://app.cal.com" });
-        Cal("inline", {
-          elementOrSelector: "#cal-embed",
-          calLink: link,
-          layout: "month_view",
-          config: { theme: "light" },
-        });
-        Cal("ui", {
-          theme: "light",
-          styles: { branding: { brandColor: "#1B2A4A" } },
-        });
-      }
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    return () => {
+      s.remove();
+    };
   }, [link]);
 
   return (
