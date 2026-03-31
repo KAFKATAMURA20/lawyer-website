@@ -42,30 +42,22 @@ const eventTypes = [
   },
 ];
 
-export default function CalEmbed() {
-  const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
+function CalInline({ slug }: { slug: string }) {
+  const embedId = `cal-embed-${slug}`;
   const initialized = useRef(false);
-  const embedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!selectedEvent) return;
+    if (initialized.current) return;
+    initialized.current = true;
 
-    // Clear previous embed content
-    if (embedRef.current) {
-      embedRef.current.innerHTML = "";
-    }
-    initialized.current = false;
-
-    // Load Cal.com embed
-    const calLink = `${CAL_USERNAME}/${selectedEvent}`;
-
+    const calLink = `${CAL_USERNAME}/${slug}`;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const w = window as any;
 
-    // Reset Cal if already loaded (for switching event types)
-    if (w.Cal && w.Cal.loaded) {
+    // If Cal script is already loaded, just create a new inline embed
+    if (w.Cal) {
       w.Cal("inline", {
-        elementOrSelector: "#cal-embed",
+        elementOrSelector: `#${embedId}`,
         calLink,
         layout: "month_view",
       });
@@ -78,39 +70,52 @@ export default function CalEmbed() {
       return;
     }
 
-    if (initialized.current) return;
-    initialized.current = true;
+    // First time: load the Cal.com script
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const p = function (a: any, ar?: any) {
+      (p.q = p.q || []).push([a, ar]);
+    } as any;
+    w.Cal = p;
+    p.ns = {};
+    p.loaded = false;
 
-    (function (C: string, A: string, L: string) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const p = function (a: any, ar?: any) {
-        (p.q = p.q || []).push([a, ar]);
-      } as any;
-      w.Cal = p;
-      p.ns = {};
-      p.loaded = false;
+    const s = document.createElement("script");
+    s.src = "https://app.cal.com/embed/embed.js";
+    s.async = true;
+    document.head.appendChild(s);
 
-      const s = document.createElement("script");
-      s.src = A;
-      s.async = true;
-      document.head.appendChild(s);
-
-      p("init", C, { origin: L });
-    })("", "https://app.cal.com/embed/embed.js", "https://app.cal.com");
-
-    w.Cal("inline", {
-      elementOrSelector: "#cal-embed",
+    p("init", "", { origin: "https://app.cal.com" });
+    p("inline", {
+      elementOrSelector: `#${embedId}`,
       calLink,
       layout: "month_view",
     });
-
-    w.Cal("ui", {
+    p("ui", {
       theme: "light",
       cssVarsPerTheme: {
         light: { "cal-brand": "#1B2A4A" },
       },
     });
-  }, [selectedEvent]);
+  }, [slug, embedId]);
+
+  return (
+    <div
+      id={embedId}
+      className="w-full overflow-hidden rounded-xl"
+      style={{ minHeight: "480px" }}
+    />
+  );
+}
+
+export default function CalEmbed() {
+  const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
+  // Counter to force fresh mount of CalInline on each selection
+  const [mountKey, setMountKey] = useState(0);
+
+  const handleSelect = (slug: string) => {
+    setSelectedEvent(slug);
+    setMountKey((k) => k + 1);
+  };
 
   // Step 1: Show our own event type picker
   if (!selectedEvent) {
@@ -119,7 +124,7 @@ export default function CalEmbed() {
         {eventTypes.map((et) => (
           <button
             key={et.slug}
-            onClick={() => setSelectedEvent(et.slug)}
+            onClick={() => handleSelect(et.slug)}
             className="group rounded-xl border-2 border-border bg-white p-5 text-left hover:border-navy hover:shadow-md transition-all"
           >
             <div className="flex items-center gap-3 mb-3">
@@ -159,13 +164,8 @@ export default function CalEmbed() {
         )}
       </div>
 
-      {/* Cal.com embed */}
-      <div
-        id="cal-embed"
-        ref={embedRef}
-        className="w-full overflow-hidden rounded-xl"
-        style={{ minHeight: "480px" }}
-      />
+      {/* Cal.com embed — key forces fresh mount each time */}
+      <CalInline key={mountKey} slug={selectedEvent} />
     </div>
   );
 }
