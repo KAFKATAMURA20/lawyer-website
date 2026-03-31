@@ -5,14 +5,14 @@ import { useEffect, useRef } from "react";
 // ============================================================
 // CAL.COM — CONNECTED
 // ============================================================
-// Username: amarvir-manhas-fexlyo
+// Username: amarvir-manhas
 // Event types:
-//   - In Person meeting (30m)  → /amarvir-manhas-fexlyo/in-person
-//   - Phone Consultation (10m) → /amarvir-manhas-fexlyo/phonecall
-//   - Video Calling (10m)      → /amarvir-manhas-fexlyo/videocalling
+//   - In Person meeting (30m)  → /amarvir-manhas/in-person
+//   - Phone Consultation (10m) → /amarvir-manhas/phonecall
+//   - Video Calling (10m)      → /amarvir-manhas/videocalling
 // ============================================================
 
-const CAL_USERNAME = "amarvir-manhas-fexlyo";
+const CAL_USERNAME = "amarvir-manhas";
 
 interface CalEmbedProps {
   calLink?: string;
