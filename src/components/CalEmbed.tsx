@@ -3,23 +3,16 @@
 import { useEffect } from "react";
 
 // ============================================================
-// CAL.COM SETUP
+// CAL.COM — CONNECTED
 // ============================================================
-// 1. Sign up at https://cal.com (free)
-// 2. Connect your Google Calendar
-// 3. Create event types for each consultation:
-//    - "In-Office Consultation (30 min)"
-//    - "In-Office Detailed Consultation (60 min)"
-//    - "Tele-Consultation (20 min)"
-//    - "Tele-Consultation Extended (30 min)"
-//    - "Urgent Consultation Request"
-// 4. Replace CAL_USERNAME below with your Cal.com username
-//    e.g., "bsmanhas" if your link is cal.com/bsmanhas
-// 5. Optionally set a specific event slug if you want to
-//    link directly to one event type
+// Username: amarvir-manhas-fexlyo
+// Event types:
+//   - In Person meeting (30m)  → /amarvir-manhas-fexlyo/in-person
+//   - Phone Consultation (10m) → /amarvir-manhas-fexlyo/phonecall
+//   - Video Calling (10m)      → /amarvir-manhas-fexlyo/videocalling
 // ============================================================
 
-const CAL_USERNAME = "REPLACE_WITH_YOUR_CAL_USERNAME";
+const CAL_USERNAME = "amarvir-manhas-fexlyo";
 
 interface CalEmbedProps {
   calLink?: string; // e.g., "bsmanhas" or "bsmanhas/office-30min"

@@ -6,7 +6,7 @@ export const siteData = {
   tagline: "Civil, Criminal & Matrimonial Lawyers",
   phone: "+91 94190 00016",
   whatsapp: "+91 94190 00016",
-  email: "[Email]",
+  email: "bsmanhasassociates@gmail.com",
   address: {
     line1: "19 A Bhawani Nagar, Janipur",
     line2: "",
@@ -29,7 +29,7 @@ export const siteData = {
   languages: ["English", "Hindi", "Dogri"],
   whatsappLink: "https://wa.me/919419000016?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20legal%20matter.",
   phoneLink: "tel:+919419000016",
-  emailLink: "mailto:[email]",
+  emailLink: "mailto:bsmanhasassociates@gmail.com",
 } as const;
 
 // Booking / consultation configuration
@@ -60,15 +60,6 @@ export const consultationTypes = [
     note: "Ideal for NRI clients or those unable to visit the office",
     fee: "₹2,000",
     confirmation: false,
-  },
-  {
-    id: "urgent",
-    title: "Urgent Consultation Request",
-    duration: "As needed",
-    mode: "Phone, in person, or video — based on availability",
-    note: "For time-sensitive matters such as bail or FIR-related issues",
-    fee: "As discussed",
-    confirmation: true,
   },
 ] as const;
 

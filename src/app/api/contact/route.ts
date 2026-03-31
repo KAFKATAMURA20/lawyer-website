@@ -14,7 +14,7 @@ import { Resend } from "resend";
 // 5. Update LAWYER_EMAIL below with the lawyer's real email
 // ============================================================
 
-const LAWYER_EMAIL = process.env.LAWYER_EMAIL || "[lawyer-email@example.com]";
+const LAWYER_EMAIL = process.env.LAWYER_EMAIL || "bsmanhasassociates@gmail.com";
 
 export async function POST(request: Request) {
   try {
