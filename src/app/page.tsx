@@ -108,7 +108,7 @@ export default function HomePage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy text-center mb-10">
-            Why Clients Choose {siteData.lawyerName}
+            Why Clients Choose Us
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
