@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Shield,
   KeyRound,
@@ -109,8 +110,18 @@ export default function CriminalLawPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-navy/[0.03] to-cream">
-        <div className="mx-auto max-w-4xl px-4 md:px-8 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-navy/[0.03] to-cream">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/law-library.jpg"
+            alt="Law library"
+            fill
+            quality={90}
+            sizes="100vw"
+            className="object-cover opacity-[0.07]"
+          />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-4 md:px-8 text-center">
           <Shield size={48} className="mx-auto text-gold mb-4" />
           <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-4">
             Criminal Law Representation in Jammu

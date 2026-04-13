@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   User,
@@ -85,13 +86,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Headshot placeholder */}
+            {/* Law library image */}
             <div className="hidden lg:flex justify-center">
-              <div className="w-80 h-96 rounded-2xl bg-gradient-to-br from-navy/10 to-gold/10 border border-border flex items-center justify-center">
-                <div className="text-center text-muted">
-                  <User size={64} className="mx-auto mb-3 text-navy/30" />
-                  <p className="text-sm">[Lawyer Headshot]</p>
-                </div>
+              <div className="w-80 h-96 rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/office-library-wide.png"
+                  alt="Office library at B S Manhas & Associates"
+                  width={1280}
+                  height={576}
+                  quality={95}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -200,7 +206,7 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
             {[
-              { value: `${siteData.yearsOfPractice}+`, label: "Years of Practice" },
+              { value: `${siteData.founderYearsOfPractice}`, label: "Years of Practice" },
               { value: "Bar Council", label: "Enrolled Member" },
               { value: "High Court", label: "of J&K and Ladakh" },
               { value: "District Court", label: "Jammu" },

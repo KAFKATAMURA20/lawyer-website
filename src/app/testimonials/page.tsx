@@ -144,7 +144,7 @@ export default function TestimonialsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-10">
             {[
               {
-                value: `${siteData.yearsOfPractice}+`,
+                value: `${siteData.founderYearsOfPractice}`,
                 label: "Years of Practice",
               },
               { value: "4.7/5", label: "Google Rating" },

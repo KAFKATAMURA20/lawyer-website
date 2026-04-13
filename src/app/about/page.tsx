@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { User, FileCheck, MessageSquare, RefreshCw } from "lucide-react";
+import Image from "next/image";
+import { FileCheck, MessageSquare, RefreshCw } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import CTASection from "@/components/CTASection";
 
@@ -11,46 +12,86 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* ===== PROFILE HERO ===== */}
+      {/* ===== PRINCIPALS ===== */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-navy/[0.03] to-cream">
         <div className="mx-auto max-w-5xl px-4 md:px-8">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-            {/* Photo placeholder */}
-            <div className="w-48 h-56 md:w-56 md:h-64 rounded-xl bg-gradient-to-br from-navy/10 to-gold/10 border border-border flex items-center justify-center shrink-0">
-              <div className="text-center text-muted">
-                <User size={48} className="mx-auto mb-2 text-navy/30" />
-                <p className="text-xs">[Photo]</p>
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-2 text-center">
+            {siteData.firmName}
+          </h1>
+          <p className="text-center text-muted mb-10">
+            {siteData.tagline} &mdash; Jammu, Jammu &amp; Kashmir
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* B S Manhas — Founder */}
+            <div className="rounded-xl bg-white border border-border p-6">
+              <div className="w-24 h-28 rounded-xl overflow-hidden mx-auto mb-4">
+                <Image
+                  src="/images/bs-manhas.png"
+                  alt={siteData.founderName}
+                  width={331}
+                  height={505}
+                  quality={95}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
+              <h2 className="font-heading text-xl font-bold text-navy text-center mb-1">
+                {siteData.founderName}
+              </h2>
+              <p className="text-gold font-medium text-center text-sm mb-4">
+                Founder &middot; {siteData.founderYearsOfPractice} years of practice
+              </p>
+              <dl className="grid grid-cols-1 gap-y-2 text-sm">
+                <div>
+                  <dt className="font-medium text-muted">Role</dt>
+                  <dd className="text-charcoal">Founding Partner &amp; Advocate</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-muted">Courts</dt>
+                  <dd className="text-charcoal">{siteData.courts.join(", ")}</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-muted">Languages</dt>
+                  <dd className="text-charcoal">{siteData.languages.join(", ")}</dd>
+                </div>
+              </dl>
             </div>
 
-            {/* Details */}
-            <div>
-              <h1 className="font-heading text-3xl md:text-4xl font-bold text-navy mb-1">
+            {/* Amarvir Singh Manhas — Lead Advocate */}
+            <div className="rounded-xl bg-white border border-border p-6">
+              <div className="w-24 h-28 rounded-xl overflow-hidden mx-auto mb-4">
+                <Image
+                  src="/images/amar-manhas.png"
+                  alt={siteData.lawyerFullName}
+                  width={768}
+                  height={1024}
+                  quality={95}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h2 className="font-heading text-xl font-bold text-navy text-center mb-1">
                 {siteData.lawyerFullName}
-              </h1>
-              <p className="text-lg text-gold font-medium mb-6">
-                {siteData.designation}
+              </h2>
+              <p className="text-gold font-medium text-center text-sm mb-4">
+                Lead Advocate &middot; Practicing since 2008 ({siteData.yearsOfPractice} years)
               </p>
-
-              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-                {[
-                  { label: "Bar Enrollment", value: siteData.barEnrollment },
-                  { label: "Education", value: siteData.education },
-                  {
-                    label: "Experience",
-                    value: `${siteData.yearsOfPractice} years`,
-                  },
-                  { label: "Courts", value: siteData.courts.join(", ") },
-                  {
-                    label: "Languages",
-                    value: siteData.languages.join(", "),
-                  },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <dt className="font-medium text-muted">{item.label}</dt>
-                    <dd className="text-charcoal">{item.value}</dd>
-                  </div>
-                ))}
+              <dl className="grid grid-cols-1 gap-y-2 text-sm">
+                <div>
+                  <dt className="font-medium text-muted">Bar Enrollment</dt>
+                  <dd className="text-charcoal">{siteData.barEnrollment}</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-muted">Education</dt>
+                  <dd className="text-charcoal">{siteData.education}</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-muted">Courts</dt>
+                  <dd className="text-charcoal">{siteData.courts.join(", ")}</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-muted">Languages</dt>
+                  <dd className="text-charcoal">{siteData.languages.join(", ")}</dd>
+                </div>
               </dl>
             </div>
           </div>
@@ -61,19 +102,35 @@ export default function AboutPage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-[720px] px-4 md:px-8 text-charcoal leading-relaxed space-y-5">
           <p>
-            {siteData.lawyerFullName} is an independent advocate based in Jammu,
-            practicing in civil, criminal, and matrimonial law. With{" "}
-            {siteData.yearsOfPractice} years of experience in the courts of
-            Jammu &amp; Kashmir, {siteData.lawyerFullName} has represented
-            individuals, families, and small businesses in matters ranging from
-            property disputes and criminal defense to divorce and child custody.
+            <strong className="text-navy">{siteData.firmName}</strong> is a
+            Jammu-based law practice founded by{" "}
+            <strong>{siteData.founderName}</strong>, who brings{" "}
+            {siteData.founderYearsOfPractice} years of experience in the courts
+            of Jammu &amp; Kashmir. The firm is now led by{" "}
+            <strong>{siteData.lawyerFullName}</strong>, practicing since 2008,
+            with {siteData.yearsOfPractice} years of experience across civil,
+            criminal, and matrimonial law.
           </p>
           <p>
-            {siteData.lawyerFullName} is enrolled with the {siteData.barEnrollment}{" "}
-            and regularly appears before the High Court of Jammu &amp; Kashmir
-            and Ladakh, the District Court Jammu, and other relevant courts
-            and forums.
+            Together, the firm has represented individuals, families, and small
+            businesses in matters ranging from property disputes and criminal
+            defense to divorce and child custody.{" "}
+            {siteData.lawyerFullName} is enrolled with the{" "}
+            {siteData.barEnrollment} and regularly appears before the High Court
+            of Jammu &amp; Kashmir and Ladakh, the District Court Jammu, and
+            other relevant courts and forums.
           </p>
+          <div className="mt-8 rounded-xl overflow-hidden">
+            <Image
+              src="/images/office-library.jpg"
+              alt="Legal records and case files library at the office"
+              width={1280}
+              height={576}
+              quality={95}
+              className="w-full h-auto object-cover"
+            />
+            <p className="text-xs text-muted mt-2 text-center">Our office library — case records and legal references</p>
+          </div>
         </div>
       </section>
 
@@ -81,7 +138,7 @@ export default function AboutPage() {
       <section className="py-12 md:py-16 bg-cream">
         <div className="mx-auto max-w-5xl px-4 md:px-8">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy mb-6 text-center">
-            How {siteData.lawyerFullName} Works
+            How We Work
           </h2>
           <div className="max-w-[720px] mx-auto text-charcoal leading-relaxed mb-10">
             <p>
@@ -124,6 +181,63 @@ export default function AboutPage() {
                 <h3 className="font-semibold text-navy mb-2">{item.title}</h3>
                 <p className="text-sm text-charcoal leading-relaxed">
                   {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== OUR TEAM ===== */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-navy mb-3 text-center">
+            Our Team
+          </h2>
+          <p className="text-center text-muted mb-10 max-w-xl mx-auto">
+            Our associates bring dedicated experience across civil, criminal, and matrimonial matters.
+          </p>
+
+          <div className="mb-8 flex justify-center">
+            <div className="rounded-xl overflow-hidden max-w-2xl w-full">
+              <Image
+                src="/images/team-photo.png"
+                alt="The legal team at our Jammu office"
+                width={716}
+                height={540}
+                quality={100}
+                unoptimized
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: "Chander Dev Singh", since: "2017", years: 9, role: "Senior Associate" },
+              { name: "Pooja Pandit", since: "2018", years: 8, role: "Associate" },
+              { name: "Sudesh", since: "2019", years: 7, role: "Associate" },
+              { name: "Deepak Kumar", since: "2022", years: 4, role: "Associate" },
+              { name: "Aman", since: "2022", years: 4, role: "Associate" },
+              { name: "Shubham", since: "2023", years: 3, role: "Associate" },
+              { name: "Akshay Kumar", since: null, years: null, role: "Junior Associate" },
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="rounded-xl bg-white border border-border p-4 text-center"
+              >
+                <div className="w-12 h-12 rounded-full bg-navy/10 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-navy font-semibold text-lg">
+                    {member.name.charAt(0)}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-navy text-sm mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-xs text-muted">
+                  {member.since
+                    ? `Licensed since ${member.since} \u00B7 ${member.years} yrs`
+                    : "Associate"}
                 </p>
               </div>
             ))}
